@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Study Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Body Styling */
+        body {
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            padding-top: 30px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Fade-In Animation for Body */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Navbar Styling with Background Image */
+        .navbar {
+            background-image: url('https://i.pinimg.com/originals/68/d6/11/68d611cf833d9030711aad3a2939df8b.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin-top: 90px;
+        }
+
+        /* Profile Card */
+        .profile-card {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInCard 1.5s ease-out forwards;
+        }
+
+        /* Profile Image Scale Animation */
+        @keyframes fadeInCard {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Profile Image Styling */
+        .profile-card img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            animation: scaleIn 1s ease-out;
+        }
+
+        /* Image Scale-In Animation */
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .profile-card h1 {
+            color: #f39c12;
+            animation: slideInFromLeft 1s ease-out;
+        }
+
+        /* Header Text Slide-In Animation */
+        @keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .profile-card p {
+            color: #fff;
+            font-size: 18px;
+        }
+
+        /* Calendar Section */
+        .calendar-container {
+            margin-top: 50px;
+        }
+
+        .calendar, .todo-list, .exam-list {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInCard 1.5s ease-out forwards;
+        }
+
+        .calendar {
+            margin-top: 20px;
+        }
+
+        .calendar h3, .todo-list h3, .exam-list h3 {
+            color: #f39c12;
+            font-size: 24px;
+            animation: fadeInText 1.5s ease-out;
+        }
+
+        /* Exam and To-Do List Header Fade-In Animation */
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .todo-list ul, .exam-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .todo-list li, .exam-list li {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            color: #fff;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .todo-list li:hover, .exam-list li:hover {
+            transform: scale(1.05); /* Hover effect on items */
+        }
+
+        .pomodoro-timer {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+
+        .pomodoro-timer button {
+            background-color: #f39c12;
+            border: none;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        /* Footer Styling */
+        .footer {
+            bottom: 0;
+            width: 100%;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body background="https://png.pngtree.com/background/20230522/original/pngtree-an-education-book-laying-flat-with-a-blue-cap-and-red-picture-image_2695008.jpg">
+
+    <!-- Navigation Header -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                  <!-- Add nav items here if needed -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="row profile-card" id="profile">
+            <div class="col-12 text-center">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7LeP_1LVSNMZMIkWGDFAAOEG6S4CUPf6kVA&s" alt="Student Profile">
+                <h1>DUA</h1>
+                <p>Computer Science Student at KLS GOGTE INSTITUTE OF TECHNOLODY </p>
+            </div>
+        </div>
+
+        <!-- Calendar Section -->
+        <div class="row calendar-container" id="calendar">
+            <div class="col-12 calendar">
+                <h3>Exam Schedule & Reminders</h3>
+                <ul>
+                    <li><strong>Web Development Midterm:</strong> Dec 1, 2024</li>
+                    <li><strong>Data Structures Final Exam:</strong> Dec 5, 2024</li>
+                    <li><strong>Discrete Mathematics Quiz:</strong> Dec 7, 2024</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- To-Do List Section -->
+        <div class="row todo-list" id="todo">
+            <div class="col-12">
+                <h3>My To-Do List</h3>
+                <ul>
+                    <li>Complete Data Structures Assignment - Due Nov 30, 2024</li>
+                    <li>Revise Web Development Chapter 5 - Due Dec 2, 2024</li>
+                    <li>Prepare for Discrete Math Quiz - Due Dec 6, 2024</li>
+                </ul>
+            </div>
+        </div>
+
+        <br><br>
+
+        <!-- Footer Section -->
+        <div class="footer">
+            <p>Designed to help you stay on top of your study schedule!</p>
+            <p><a href="homepage.html">Back to Home</a></p>
+        </div>
+
+    </div>
+
+    <!-- JavaScript Section -->
+    <script>
+        // Pomodoro Timer Functionality
+        let timer;
+        let isPomodoroRunning = false;
+
+        document.getElementById('start-pomodoro').addEventListener('click', function() {
+            if (!isPomodoroRunning) {
+                isPomodoroRunning = true;
+                let minutes = 25;
+                let seconds = 0;
+                
+                timer = setInterval(function() {
+                    if (seconds == 0 && minutes == 0) {
+                        clearInterval(timer);
+                        alert("Pomodoro Complete! Time for a break!");
+                        isPomodoroRunning = false;
+                        document.getElementById('start-pomodoro').style.display = "inline-block";
+                        document.getElementById('stop-pomodoro').style.display = "none";
+                    } else {
+                        if (seconds == 0) {
+                            minutes--;
+                            seconds = 59;
+                        } else {
+                            seconds--;
+                        }
+                        document.getElementById('timer').innerText = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                    }
+                }, 1000);
+
+                document.getElementById('start-pomodoro').style.display = "none";
+                document.getElementById('stop-pomodoro').style.display = "inline-block";
+            }
+        });
+
+        document.getElementById('stop-pomodoro').addEventListener('click', function() {
+            clearInterval(timer);
+            isPomodoroRunning = false;
+            document.getElementById('start-pomodoro').style.display = "inline-block";
+            document.getElementById('stop-pomodoro').style.display = "none";
+        });
+    </script>
+
+</body>
+</html>

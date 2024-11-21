@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Assignment - Smart Study Platform</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Background Image for the Whole Page */
+        body {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvJeCApOAr2cNHx01hc8m0q40i789dPgxl5S1VFJfc-8RKZC5rTvwECjhm4EfUTVmWF9o&usqp=CAU');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: #080808;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar Background Image */
+        nav {
+            background-image: url('https://cdn.sanity.io/images/3do82whm/next/b88e6888748d4209f8c6746ac5507c673b2a01e9-1440x800.svg');
+            background-size: cover;
+            background-position: center;
+            padding: 10px 0;
+        }
+
+        /* Header Section */
+        header {
+            color: rgb(228, 219, 219);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 30px;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: fadeInHeader 2s ease-out forwards;
+        }
+
+        @keyframes fadeInHeader {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Container padding */
+        .container {
+            padding: 40px 20px;
+        }
+
+        .assignment-card {
+            background-color: rgba(90, 87, 86, 0.201); /* Slightly transparent white for readability */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .assignment-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .assignment-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .assignment-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #f1f1f1;
+        }
+
+        .assignment-progress {
+            margin-top: 10px;
+        }
+
+        .assignment-progress .progress-bar {
+            height: 20px;
+            border-radius: 5px;
+        }
+
+        .footer {
+            background-image: url('https://cdn.sanity.io/images/3do82whm/next/b88e6888748d4209f8c6746ac5507c673b2a01e9-1440x800.svg');
+            color: rgba(223, 220, 220, 0.91);
+            padding: 10px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .footer a {
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-success-custom {
+            background-color: #34312d;
+            color: rgba(226, 224, 224, 0.916);
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            border: none;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-success-custom:hover {
+            background-color: #b02525;
+        }
+
+        /* Book Icon Styling */
+        .book-icon {
+            width: 80px;
+            height: auto;
+        }
+
+        .assignment-description {
+            font-size: 16px;
+            color: #f1eded;
+            margin-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar Section -->
+    <nav>
+        <div class="container">
+            <h1 class="text-center text-white">Smart Study Platform - Assignment Tracker</h1>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header>
+        
+        <p><h2>Stay on track with your assignments and submit on time!</h2></p>
+    </header>
+
+    <!-- Assignment Progress Section -->
+    <div class="container">
+        
+        <!-- Assignment 1 -->
+        <div class="assignment-card">
+            <div class="assignment-info">
+                <img src="https://c8.alamy.com/comp/2BW4M88/kid-programmer-learn-coding-on-computer-tablet-or-phone-child-create-code-or-program-of-game-on-programming-languages-online-remote-internet-2BW4M88.jpg" alt="Book Image" class="book-icon">
+                <div>
+                    <div class="assignment-title">Assignment 1: Research Paper</div>
+                    <p class="assignment-description">Complete your research on modern web technologies and submit your findings.</p>
+                    <div class="assignment-progress">
+                        <label for="assignment1-progress">Progress</label>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" style="width: 60%;" id="assignment1-progress"></div>
+                        </div>
+                        <p>Completion: 60%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Assignment 2 -->
+        <div class="assignment-card">
+            <div class="assignment-info">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7LVzQ4Us7mpxntajDxQl-eUMtHdtxifaK0g&s" alt="Book Image" class="book-icon">
+                <div>
+                    <div class="assignment-title">Assignment 2: Coding Project</div>
+                    <p class="assignment-description">Develop a simple website using HTML, CSS, and JavaScript for your coding project.</p>
+                    <div class="assignment-progress">
+                        <label for="assignment2-progress">Progress</label>
+                        <div class="progress">
+                            <div class="progress-bar bg-warning" style="width: 80%;" id="assignment2-progress"></div>
+                        </div>
+                        <p>Completion: 80%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Assignment 3 -->
+        <div class="assignment-card">
+            <div class="assignment-info">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcl5NsfIUZSaXL9gzX-vPSV9nKjT2ASmR-Xg&s" alt="Book Image" class="book-icon">
+                <div>
+                    <div class="assignment-title">Assignment 3: Literature Review</div>
+                    <p class="assignment-description">Review the latest research on machine learning algorithms and summarize key findings.</p>
+                    <div class="assignment-progress">
+                        <label for="assignment3-progress">Progress</label>
+                        <div class="progress">
+                            <div class="progress-bar bg-info" style="width: 40%;" id="assignment3-progress"></div>
+                        </div>
+                        <p>Completion: 40%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Assignment 4 -->
+        <div class="assignment-card">
+            <div class="assignment-info">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQobDGmARl7lp7jrxG7K5pQN4MrCz-wLnJMdQ&s" alt="Book Image" class="book-icon">
+                <div>
+                    <div class="assignment-title">Assignment 4: Data Analysis</div>
+                    <p class="assignment-description">Perform data analysis on a dataset and create meaningful visualizations.</p>
+                    <div class="assignment-progress">
+                        <label for="assignment4-progress">Progress</label>
+                        <div class="progress">
+                            <div class="progress-bar bg-danger" style="width: 30%;" id="assignment4-progress"></div>
+                        </div>
+                        <p>Completion: 30%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Assignment 5 -->
+        <div class="assignment-card">
+            <div class="assignment-info">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtSIKjK8fKoxA7xhW7ItXvYLSKUrmheeyKsw&s" alt="Book Image" class="book-icon">
+                <div>
+                    <div class="assignment-title">Assignment 5: Final Project</div>
+                    <p class="assignment-description">Work on the final project for your course and integrate everything you've learned.</p>
+                    <div class="assignment-progress">
+                        <label for="assignment5-progress">Progress</label>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" style="width: 90%;" id="assignment5-progress"></div>
+                        </div>
+                        <p>Completion: 90%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Button to Complete All Assignments -->
+        <div class="text-center section-gap">
+            <button class="btn-success-custom" onclick="completeAssignments()">Complete All Assignments</button>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>Keep working hard and complete your assignments on time!</p>
+        <p><a href="homepage.html">Back to Home</a></p>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        // Function to simulate completing all assignments
+        function completeAssignments() {
+            const assignments = document.querySelectorAll('.progress-bar');
+            assignments.forEach(bar => {
+                bar.style.width = '100%';
+            });
+            alert("All assignments marked as completed!");
+        }
+    </script>
+
+</body>
+</html>

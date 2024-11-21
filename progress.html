@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Progress - Smart Study Platform</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Background Image */
+        body {
+            background-image: url("https://t3.ftcdn.net/jpg/07/14/70/80/360_F_714708000_822i0Irf9Y8vfFxMkw5MlOR6hmQRhjly.jpg"); /* Replace with your background image URL */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: #050505;
+            margin: 0;
+            padding: 0;
+            animation: fadeInBody 2s ease-in-out;
+        }
+
+        /* Fade-in animation for body */
+        @keyframes fadeInBody {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Header Section */
+        header {
+            background-color: rgba(226, 115, 42, 0.362); /* Semi-transparent black background */
+            color: rgb(255, 255, 255);
+            padding: 20px 0;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(-50px);
+            animation: fadeInHeader 1.5s ease-out forwards;
+        }
+
+        /* Header fade-in animation */
+        @keyframes fadeInHeader {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Container padding */
+        .container {
+            padding: 30px 20px;
+        }
+
+        /* Card animations */
+        .progress-card {
+            background-color: rgba(220, 217, 216, 0.553); /* Slightly transparent white for readability */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInCard 1s ease-out forwards;
+        }
+
+        /* Card fade-in animation */
+        @keyframes fadeInCard {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            text-align: center;
+            color: #000000;
+        }
+
+        .progress-bar {
+            height: 30px;
+            border-radius: 5px;
+            transition: width 0.5s ease; /* Smooth progress bar transition */
+        }
+
+        .footer {
+            background-color: rgba(226, 115, 42, 0.362);
+            color: rgb(244, 235, 235);
+            padding: 10px;
+            text-align: center;
+            margin-top: 30px;
+            animation: fadeInFooter 1.5s ease-out forwards;
+        }
+
+        /* Footer fade-in animation */
+        @keyframes fadeInFooter {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .footer a {
+            color: rgb(187, 181, 181);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .card-text {
+            font-size: 16px;
+            color: #000000;
+        }
+
+        /* Certificate Styling */
+        .certificate-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border: 5px solid #4b3f37;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display: none;
+            text-align: center;
+            margin-top: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInCertificate 1.5s ease-out forwards;
+        }
+
+        /* Certificate fade-in animation */
+        @keyframes fadeInCertificate {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .certificate-title {
+            font-size: 30px;
+            color: #1b95c1;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .certificate-body {
+            font-size: 20px;
+            color: #000000;
+            margin-bottom: 30px;
+        }
+
+        .certificate-footer {
+            font-size: 16px;
+            color: #000000;
+        }
+
+        /* Add some space between sections */
+        .section-gap {
+            margin-top: 30px;
+        }
+
+        /* Custom Button */
+        .btn-success-custom {
+            background-color: #fffefe;
+            color: rgb(0, 0, 0);
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            border: none;
+            width: 100%;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn-success-custom:hover {
+            background-color: #1b281c;
+            color: antiquewhite;
+            transform: scale(1.05); /* Scale button on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Smart Study Platform - Student Progress</h1>
+        <p>Track your progress and stay on top of your study goals!</p>
+    </header>
+
+    <!-- Progress Tracking Section -->
+    <div class="container">
+        
+        <!-- Course Progress Card -->
+        <div class="progress-card">
+            <h2 class="card-title">Course Progress</h2>
+            <p class="card-text">Keep track of the courses you're enrolled in and your completion progress.</p>
+            
+            <div>
+                <label for="course-progress">Course 1: Web Development</label>
+                <div class="progress">
+                    <div class="progress-bar bg-success" style="width: 70%;" id="course1-progress"></div>
+                </div>
+                <p>Completion: 70%</p>
+            </div>
+
+            <div>
+                <label for="course-progress">Course 2: Data Structures</label>
+                <div class="progress">
+                    <div class="progress-bar bg-warning" style="width: 50%;" id="course2-progress"></div>
+                </div>
+                <p>Completion: 50%</p>
+            </div>
+
+            <div>
+                <label for="course-progress">Course 3: Machine Learning</label>
+                <div class="progress">
+                    <div class="progress-bar bg-info" style="width: 40%;" id="course3-progress"></div>
+                </div>
+                <p>Completion: 40%</p>
+            </div>
+        </div>
+
+        <!-- Study Sessions Progress -->
+        <div class="progress-card">
+            <h2 class="card-title">Study Sessions</h2>
+            <p class="card-text">Track your study sessions and total hours spent.</p>
+            
+            <div>
+                <label for="study-session-progress">Total Study Sessions Completed</label>
+                <div class="progress">
+                    <div class="progress-bar bg-primary" style="width: 80%;" id="study-session-progress"></div>
+                </div>
+                <p>Completion: 80%</p>
+            </div>
+        </div>
+
+        <!-- Assignments Progress -->
+        <div class="progress-card">
+            <h2 class="card-title">Assignments Progress</h2>
+            <p class="card-text">See how you're progressing on your assignments and deadlines.</p>
+            
+            <div>
+                <label for="assignments-progress">Assignment 1: Research Paper</label>
+                <div class="progress">
+                    <div class="progress-bar bg-success" style="width: 60%;" id="assignment1-progress"></div>
+                </div>
+                <p>Completion: 60%</p>
+            </div>
+
+            <div>
+                <label for="assignments-progress">Assignment 2: Coding Project</label>
+                <div class="progress">
+                    <div class="progress-bar bg-warning" style="width: 80%;" id="assignment2-progress"></div>
+                </div>
+                <p>Completion: 80%</p>
+            </div>
+
+            <div>
+                <label for="assignments-progress">Assignment 3: Literature Review</label>
+                <div class="progress">
+                    <div class="progress-bar bg-info" style="width: 40%;" id="assignment3-progress"></div>
+                </div>
+                <p>Completion: 40%</p>
+            </div>
+        </div>
+
+        <!-- Exam Progress -->
+        <div class="progress-card">
+            <h2 class="card-title">Upcoming Exam Progress</h2>
+            <p class="card-text">Track the dates and progress for your exams.</p>
+            
+            <div>
+                <label for="exam-progress">Final Exam: Web Development</label>
+                <div class="progress">
+                    <div class="progress-bar bg-danger" style="width: 30%;" id="exam1-progress"></div>
+                </div>
+                <p>Preparation: 30%</p>
+            </div>
+        </div>
+
+        <!-- Certificate Generation -->
+        <div class="certificate-container" id="certificate-container">
+            <div class="certificate-title">Certificate of Completion</div>
+            <div class="certificate-body">
+                <p>This is to certify that <strong>Student Name</strong> has successfully completed their study plan and made significant progress in their courses, assignments, and study sessions.</p>
+                <p>Keep up the great work and continue to strive for success!</p>
+            </div>
+            <div class="certificate-footer">
+                <p>Issued by: Smart Study Platform</p>
+                <p>Date: <span id="date-issued"></span></p>
+            </div>
+        </div>
+
+        <!-- Button to Generate Certificate -->
+        <div class="text-center">
+            <button class="btn-success-custom" onclick="generateCertificate()">Generate Certificate</button>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <p>Keep up the good work! Stay productive and achieve your study goals!</p>
+        <p><a href="homepage.html">Back to Home</a></p>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        // Function to generate and display the certificate
+        function generateCertificate() {
+            // Set the current date
+            const date = new Date();
+            document.getElementById("date-issued").textContent = date.toLocaleDateString();
+
+            // Show the certificate
+            document.getElementById("certificate-container").style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
